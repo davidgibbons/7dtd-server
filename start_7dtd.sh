@@ -108,6 +108,8 @@ if [ ! -f "${SEVEN_DAYS_TO_DIE_CONFIG_FILE}" ]; then
 	echo "Config file not found, creating a new one.."
 	cp /steamcmd/7dtd/serverconfig.xml ${SEVEN_DAYS_TO_DIE_CONFIG_FILE}
 fi
+# Add allocs server fixes
+curl -s http://illy.bz/fi/7dtd/server_fixes.tar.gz | bsdtar -xvf -C  /app/.local/share/7DaysToDie
 
 # Run the server
 /steamcmd/7dtd/7DaysToDieServer.x86_64 ${SEVEN_DAYS_TO_DIE_SERVER_STARTUP_ARGUMENTS} -configfile=${SEVEN_DAYS_TO_DIE_CONFIG_FILE} &
